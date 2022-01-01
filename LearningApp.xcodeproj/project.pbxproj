@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA00BF142780EC5A00979376 /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA00BF132780EC5A00979376 /* HomeViewRow.swift */; };
 		EA0B414B277F766E00267A4C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B414A277F766E00267A4C /* Models.swift */; };
 		EA120CE1277E50F300B38B74 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA120CE0277E50F300B38B74 /* LearningApp.swift */; };
 		EA120CE3277E50F300B38B74 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA120CE2277E50F300B38B74 /* HomeView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA00BF132780EC5A00979376 /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
 		EA0B414A277F766E00267A4C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EA120CDD277E50F300B38B74 /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA120CE0277E50F300B38B74 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				EA120CE2277E50F300B38B74 /* HomeView.swift */,
+				EA00BF132780EC5A00979376 /* HomeViewRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA120CE3277E50F300B38B74 /* HomeView.swift in Sources */,
+				EA00BF142780EC5A00979376 /* HomeViewRow.swift in Sources */,
 				EA120CE1277E50F300B38B74 /* LearningApp.swift in Sources */,
 				EA7A4726277E54D200D7E26F /* ContentModel.swift in Sources */,
 				EA0B414B277F766E00267A4C /* Models.swift in Sources */,
