@@ -14,11 +14,17 @@ class ContentModel: ObservableObject {
     // The @Published lets the view that is using the object to react to changes
     //
     @Published var modules = [Module]() // and empty array of modules
+    //
+    //  We want to keep track of the module type and lesson or test
+    @Published var currentModule: Module?
+    var currentModuleIndex = 0 // referenced as: currentModule = modules[currentModuleIndex]
+    //
+    
     var styleData: Data? // nil optional
     init(){
         getLocalData()
     }
-    
+    // MARK: Data Methods
     func getLocalData(){
         //
         // Get a url to the json file
@@ -61,5 +67,23 @@ class ContentModel: ObservableObject {
 
     }
     
+    // MARK: Module Navigation Methods
+    
+    func beginModule (moduleID: Int){
+        //
+        //  Find the index
+        //
+        for index in 0..<modules.count{
+            if modules[index].id == moduleID {
+                currentModuleIndex = index
+                break // found it!
+            }
+        }
+        // Set the current module
+        //
+        currentModule = modules[currentModuleIndex]
+        
+        
+    }
 }
 
