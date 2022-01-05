@@ -22,6 +22,10 @@ class ContentModel: ObservableObject {
     // Set some state vars for the current lesson
     //
     @Published var currentLesson: Lesson?
+    //
+    // Current lesson explaination in HTML
+    //
+    @Published var lessonDescription = NSAttributedString()
     var currentLessonIndex = 0
     
     var styleData: Data? // nil optional
@@ -103,6 +107,7 @@ class ContentModel: ObservableObject {
         // set current index
         //
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        lessonDescription = addStyling(htmlString: currentLesson!.explanation)
     }
     func hasNextLesson() -> Bool {
         return currentLessonIndex + 1 < currentModule!.content.lessons.count
@@ -120,6 +125,7 @@ class ContentModel: ObservableObject {
             // Set the current lesson to next
             //
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonDescription = addStyling(htmlString: currentLesson!.explanation)
         }
         else {
             // Reset the lesson state
@@ -128,6 +134,36 @@ class ContentModel: ObservableObject {
             currentLesson = nil
         }
         
+    }
+    private func addStyling( htmlString: String) -> NSAttributedString {
+        var resultString = NSAttributedString()
+        var data = Data()
+        //
+        // Styling Data
+        //
+        if(styleData != nil){
+            data.append(styleData!)
+        }
+        // HTML Data (create a data object and append it to our data object
+        //
+        data.append(Data(htmlString.utf8))
+        //
+        // Convert to attributed string with a do catch block!
+        //
+        /*do {
+            let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+                resultString = attributedString
+            
+        }
+        catch {
+            print("broke on converting html to attributed string")
+        }*/
+        // Same code without do catch. If the try? fails the resultString is not set.
+        //
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil){
+            resultString = attributedString
+        }
+        return resultString
     }
 }
 
