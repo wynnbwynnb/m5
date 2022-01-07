@@ -26,6 +26,11 @@ class ContentModel: ObservableObject {
     // Current lesson explaination in HTML
     //
     @Published var lessonDescription = NSAttributedString()
+    //
+    // Current selected content and test (our set to nil to unwind guy)
+    //
+    @Published var currentContentSelected:Int?
+    
     var currentLessonIndex = 0
     
     var styleData: Data? // nil optional

@@ -29,6 +29,13 @@ struct HomeView: View {
                                         ContentView().onAppear(perform: {
                                             model.beginModule(moduleID: module.id)
                                 }),
+                                    //  the currentContentSelected will get the tag
+                                    //  when the destination is selected...
+                                    //  setting the currentContentSelected to nil
+                                    //  in the lessons will unwind
+                                    tag: module.id,
+                                    selection: $model.currentContentSelected,
+                                    
                                     label:{
                                     HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons", time: module.content.time)
                               

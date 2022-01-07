@@ -14,6 +14,7 @@ struct ContentDetailView: View {
         let lesson = model.currentLesson
         let url = URL(string: Constants.videoHostUrl2 + (lesson?.video ?? ""))
 
+
         VStack {
             if url != nil {
                 VideoPlayer(player: AVPlayer(url: url!))
@@ -28,13 +29,28 @@ struct ContentDetailView: View {
                     
                 }, label: {
                     ZStack{
-                        Rectangle()
+                        RectangleCard(color: Color.green)
                             .frame(height:48)
-                            .foregroundColor(Color.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
+                            
                     
                         Text("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                })
+            }
+            else {
+                // show complete button
+                Button(action :{
+                    // back to home view
+                    model.currentContentSelected = nil
+                }, label: {
+                    ZStack{
+                        RectangleCard(color: Color.gray)
+                            .frame(height:48)
+                            
+                    
+                        Text("Completed")
                             .foregroundColor(.white)
                             .bold()
                     }
